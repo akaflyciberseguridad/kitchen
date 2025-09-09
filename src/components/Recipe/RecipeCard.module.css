@@ -1,0 +1,187 @@
+.recipeCard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background: var(--light-gray);
+  min-height: 100vh;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.mainContent {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--spacing-xl);
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.nutritionInfo,
+.tips,
+.tags {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--light-gray);
+}
+
+.sidebarTitle {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  color: var(--black);
+  margin: 0 0 var(--spacing-md) 0;
+  font-family: var(--font-family-secondary);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: var(--spacing-sm);
+}
+
+.nutritionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.nutritionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-md);
+  background: var(--light-gray);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease;
+}
+
+.nutritionItem:hover {
+  transform: translateY(-2px);
+}
+
+.nutritionValue {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.nutritionLabel {
+  font-size: var(--font-size-small);
+  color: var(--medium-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tipsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.tip {
+  font-size: var(--font-size-small);
+  color: var(--dark-gray);
+  line-height: 1.5;
+  padding: var(--spacing-md);
+  background: var(--light-gray);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--secondary-color);
+  position: relative;
+}
+
+.tip::before {
+  content: "💡";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--white);
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.tag {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .sidebar {
+    position: static;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .nutritionInfo {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipeCard {
+    padding: var(--spacing-lg);
+  }
+  
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+  
+  .nutritionGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .tip::before {
+    display: none;
+  }
+  
+  .tip {
+    border-left-width: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipeCard {
+    padding: var(--spacing-md);
+  }
+  
+  .nutritionGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .nutritionItem {
+    padding: var(--spacing-sm);
+  }
+}
